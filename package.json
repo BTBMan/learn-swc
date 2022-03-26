@@ -1,0 +1,17 @@
+{
+  "name": "learn-swc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "swc ./src/index.js -d ./dist --env-name=production",
+    "pack": "spack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/cli": "^0.1.56",
+    "@swc/core": "^1.2.160"
+  }
+}
