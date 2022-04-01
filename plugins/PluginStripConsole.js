@@ -1,7 +1,7 @@
 const { CallExpression, Expression, transformSync } = require('@swc/core');
 const { Visitor } = require('@swc/core/Visitor.js');
 
-module.exports = class ConsoleStripper extends Visitor {
+class ConsoleStripper extends Visitor {
   visitCallExpression(expression) {
     if (expression.callee.type !== 'MemberExpression') {
       return expression;
@@ -27,4 +27,8 @@ module.exports = class ConsoleStripper extends Visitor {
 
     return expression;
   }
+}
+
+module.exports = {
+  ConsoleStripper,
 };

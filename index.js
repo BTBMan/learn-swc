@@ -1,6 +1,7 @@
-const { transform, parse } = require('@swc/core');
+const { transform, parse, plugins } = require('@swc/core');
 const { readFileSync } = require('fs');
-const ConsoleStripper = require('./plugins/PluginStripConsole.js');
+const { ConsoleStripper } = require('./plugins/PluginStripConsole.js');
+const { MyVisitor } = require('./plugins/MyVisitor');
 
 const getFileCode = (file = './src/index.js') => {
   return readFileSync(file, { encoding: 'utf-8' });
@@ -16,9 +17,17 @@ const transformCode = () => {
         syntax: 'ecmascript',
       },
     },
-    plugin: (m) => {
-      return new ConsoleStripper().visitProgram(m);
-    },
+    // for single plugin
+    // plugin: (m) => new ConsoleStripper().visitProgram(m),
+    // for multiple plugins
+    plugin: plugins([
+      (m) => {
+        return new ConsoleStripper().visitProgram(m);
+      },
+      (m) => {
+        return new MyVisitor().visitProgram(m);
+      },
+    ]),
   }).then((output) => {
     console.log(output);
   });
