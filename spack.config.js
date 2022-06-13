@@ -8,4 +8,12 @@ module.exports = config({
     path: __dirname + '/dist',
   },
   module: {},
+  options: {
+    module: {
+      type: 'umd',
+      globals: {
+        foo: 'afoo',
+      },
+    },
+  },
 });
