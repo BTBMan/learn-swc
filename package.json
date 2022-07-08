@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@swc/cli": "^0.1.56",
-    "@swc/core": "^1.2.160"
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.210"
   }
 }
