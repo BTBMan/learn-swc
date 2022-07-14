@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "parse": "swc ./src/index.js -d ./dist --env-name=production",
+    "parse": "swc ./src/index.ts -d ./dist --env-name=production",
     "build": "spack"
   },
   "keywords": [],
