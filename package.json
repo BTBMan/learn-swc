@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "parse": "swc ./src/index.ts -d ./dist --env-name=production",
+    "parse": "swc ./src/index.js -d ./dist --env-name=production",
     "build": "spack"
   },
   "keywords": [],
@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.2.210"
+    "@swc/core": "^1.2.210",
+    "chalk": "^5.0.1"
   }
 }

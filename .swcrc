@@ -2,15 +2,11 @@
   "$schema": "https://json.schemastore.org/swcrc",
   "jsc": {
     "target": "es2020",
-    "transform": {
-      "decoratorMetadata": true
-    },
     "parser": {
-      "syntax": "typescript",
-      "dts": true
+      "syntax": "ecmascript"
     }
   },
   "module": {
-    "type": "commonjs"
+    "type": "es6"
   }
 }

@@ -1,10 +1,17 @@
-import { foo } from './foo.js';
-export * from './foo.js';
+// import { foo } from './foo.js';
+// export * from './foo.js';
+import chalk from 'chalk';
 
-const test = () => {
+console.log(chalk);
+
+export const test = () => {
   console.log('hello world!');
 
-  foo();
+  // foo();
 };
 
-test();
+// test();
+
+export default {
+  a: 'a',
+};

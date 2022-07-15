@@ -7,13 +7,5 @@ module.exports = config({
   output: {
     path: __dirname + '/dist',
   },
-  module: {},
-  options: {
-    module: {
-      type: 'umd',
-      globals: {
-        foo: 'afoo',
-      },
-    },
-  },
+  // externalModules: ['chalk'],
 });
