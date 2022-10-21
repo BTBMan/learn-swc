@@ -1,10 +1,10 @@
-const { transform, parse, plugins } = require('@swc/core');
-const { readFileSync } = require('fs');
-const { ConsoleStripper } = require('./plugins/PluginStripConsole.js');
-const { MyVisitor } = require('./plugins/MyVisitor');
+const { transform, parse, plugins, bundle } = require("@swc/core");
+const { readFileSync } = require("fs");
+const { ConsoleStripper } = require("./plugins/PluginStripConsole.js");
+const { MyVisitor } = require("./plugins/MyVisitor");
 
-const getFileCode = (file = './src/index.js') => {
-  return readFileSync(file, { encoding: 'utf-8' });
+const getFileCode = (file = "./src/foo.js") => {
+  return readFileSync(file, { encoding: "utf-8" });
 };
 
 const code = getFileCode();
@@ -14,7 +14,7 @@ const transformCode = () => {
   transform(code, {
     jsc: {
       parser: {
-        syntax: 'ecmascript',
+        syntax: "ecmascript",
       },
     },
     // for single plugin
@@ -36,11 +36,24 @@ const transformCode = () => {
 // 把代码解析为语法树
 const parseCode = () => {
   parse(code, {
-    syntax: 'ecmascript',
+    syntax: "ecmascript",
   }).then((module) => {
     console.log(module);
   });
 };
 
-transformCode();
+bundle({
+  entry: "./src/index.ts",
+  options: {
+    jsc: {
+      parser: {
+        syntax: "typescript",
+      },
+    },
+  },
+}).then((a) => {
+  console.log(a);
+});
+
+// transformCode();
 // parseCode();
